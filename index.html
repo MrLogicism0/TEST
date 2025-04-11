@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Click here to get to awesome games!</title>
+    <style>
+        /* Style for the body to center the button and set background color to white */
+        body {
+            display: flex;
+            flex-direction: column; /* Stack elements vertically */
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #FFFFFF; /* White background */
+            font-family: Arial, sans-serif; /* Font for text */
+        }
+
+        /* Style for the heading */
+        h1 {
+            margin-bottom: 20px;
+            font-size: 32px;
+            color: #333333; /* Dark gray color for text */
+            font-weight: bold;
+        }
+
+        /* Button style */
+        button {
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: bold;
+            background-color: #8B0000; /* Dark red */
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        /* Hover effect for the button */
+        button:hover {
+            background-color: #6A0000; /* Even darker red on hover */
+            transform: scale(1.05);
+        }
+
+        /* Focus effect for accessibility */
+        button:focus {
+            outline: none;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Free Trigonometry!</h1> <!-- Added header above the button -->
+
+    <button onclick="openAndInjectIframe()">Click here to get to awesome games!</button>
+
+    <script>
+        function openAndInjectIframe() {
+            // Open a new tab
+            const newTab = window.open('', '_blank');
+            
+            // Ensure the new tab is fully loaded before injecting content
+            newTab.document.write('<html><head><title>Free Trigonometry</title></head><body style="margin: 0; padding: 0; overflow: hidden;"></body></html>');
+            newTab.document.close();
+
+            // Create an iframe
+            const iframe = newTab.document.createElement('iframe');
+            iframe.src = 'https://free-trigonometry101.netlify.app';  // Change this to the URL you want to load
+            iframe.style.width = '100%';
+            iframe.style.height = '100vh';  // Set the iframe to fill the entire viewport height
+
+            // Make sure the iframe covers the whole window without shrinking
+            iframe.style.border = 'none';  // Optional: remove border for cleaner look
+            iframe.style.margin = '0';
+            iframe.style.padding = '0';
+
+            // Append the iframe to the body of the new tab
+            newTab.document.body.appendChild(iframe);
+        }
+    </script>
+
+</body>
+</html>
+
+
+
